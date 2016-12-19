@@ -8,6 +8,7 @@ export default function bookListReducer(state=[], action) {
       return state.filter(function(item) {
         return !(item.title === action.payload.title && item.description === action.payload.description)
       })
+  
     default: return state
   }
 }

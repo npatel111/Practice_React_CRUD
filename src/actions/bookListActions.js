@@ -18,3 +18,10 @@ export function deleteBook(title, description) {
     payload: {title: title, description: description}
   }
 }
+
+export function showBook(title, description) {
+  return {
+    type: "SHOW_BOOK",
+    payload: {title: title, description: description}
+  }
+}

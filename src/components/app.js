@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect} from 'react-redux'
-import BookList from './BookList'
+import BookListComponent from './BookList'
 import NewBookComponent from './NewBook'
 import { getBooks } from '../actions/bookListActions';
 import showSelectedBook from './showSelectedBook'
@@ -10,8 +10,8 @@ import showSelectedBook from './showSelectedBook'
 import { bindActionCreators } from 'redux';
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
   }
 
 
@@ -20,7 +20,7 @@ class App extends Component {
       <div>
         <NewBookComponent />
         <div>List of books</div>
-        <BookList allBooks={this.props.allBooks} />
+        <BookListComponent allBooks={this.props.allBooks} selectedBook={this.props.selectedBook}/>
         <showSelectedBook />
       </div>
     );
@@ -28,7 +28,8 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return {allBooks: state.allBooks}
+  debugger
+  return {allBooks: state.allBooks, selectedBook: state.selectedBook}
 }
 
 const connector = connect(mapStateToProps)
