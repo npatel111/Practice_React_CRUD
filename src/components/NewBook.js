@@ -13,6 +13,8 @@ class NewBook extends Component {
 
   submitBook(event) {
     event.preventDefault()
+//     Try to stay away from grabbing elements off of the dom.  Instead onChange of an input, update the component's state
+//     Then dispatch an action with that information on a submit.
     let title = event.target.children[2].value
     let description = event.target.children[6].value
     this.props.addBook(title, description)
